@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Esparcraft Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">T</div>
+            <div>
+                <strong>Tirano</strong>
+                <small>Studios</small>
+            </div>
+        </div>
+
+        <nav>
+            <button class="active">Dashboard</button>
+            <button>Consola</button>
+            <button>Plugins</button>
+            <button>Configuración</button>
+        </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+            <input type="text" placeholder="Buscar servidores...">
+            <button class="primary" onclick="openCreate()">+ Nuevo Servidor</button>
+        </header>
+
+        <!-- STATS -->
+        <section class="stats">
+            <div class="stat-card">
+                <span>Total Servidores</span>
+                <strong id="totalServers">0</strong>
+            </div>
+            <div class="stat-card">
+                <span>Online</span>
+                <strong id="onlineServers">0</strong>
+            </div>
+            <div class="stat-card">
+                <span>Offline</span>
+                <strong id="offlineServers">0</strong>
+            </div>
+        </section>
+
+        <!-- SERVERS -->
+        <section>
+            <h2>Servidores</h2>
+            <div id="servers" class="servers-grid"></div>
+        </section>
+
+        <!-- CONSOLE -->
+        <section class="console-section">
+            <h2>Consola</h2>
+
+            <!-- 🔘 FILTROS Y LIMPIAR -->
+            <div class="console-controls">
+                <div class="log-filters">
+                    <label><input type="checkbox" value="info" checked onchange="filterLogs()"> INFO</label>
+                    <label><input type="checkbox" value="warn" checked onchange="filterLogs()"> WARN</label>
+                    <label><input type="checkbox" value="error" checked onchange="filterLogs()"> ERROR</label>
+                    <label><input type="checkbox" value="success" checked onchange="filterLogs()"> SUCCESS</label>
+                    <label><input type="checkbox" value="command" checked onchange="filterLogs()"> COMMAND</label>
+                    <label><input type="checkbox" value="system" checked onchange="filterLogs()"> SYSTEM</label>
+                </div>
+                <button onclick="clearConsole()" class="clear-btn">🧹 Limpiar Consola</button>
+            </div>
+
+            <!-- 🔥 LOGS -->
+            <pre id="console"></pre>
+        </section>
+
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
